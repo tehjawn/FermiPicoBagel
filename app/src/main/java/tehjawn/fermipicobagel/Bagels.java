@@ -12,9 +12,15 @@ public class Bagels {
         private int secretNumber;
         private String secretString = String.valueOf(secretNumber);
         boolean win;
+        private int count;
+
+
+        public String getCount(){
+            return String.valueOf(count);
+        }
 
         public void playGame(String userGuessInput){
-            int count = 1;
+            count = 1;
 
             secretString = String.valueOf(secretNumber);
 
@@ -24,7 +30,7 @@ public class Bagels {
                 String userGuess = userGuessInput;
                 if(isGuessCorrect(userGuess)){
                     win = true;
-                    System.out.println("You win!");
+                    //System.out.println("You win!");
                     break;
                 } else {
                     printHint(userGuess);
@@ -50,14 +56,17 @@ public class Bagels {
         public void createSecretNumber(){
             secretNumber = rng.nextInt(900)+100;
         }
+        public int getSecretNumber(){
+            return secretNumber;
+        }
 
         private boolean doesGuessExist(String guess){
 
             if (guess.equals(secretString)){
-                System.out.println("True");
+                //System.out.println("True");
                 return true;
             } else {
-                System.out.print("False! : ");
+                //System.out.print("False! : ");
                 return false;
             }
 
@@ -67,10 +76,10 @@ public class Bagels {
         private boolean isGuessCorrect(String guess) {
             //System.out.println(guess + " - " + secretString);
             if (guess.equals(secretString)){
-                System.out.println("True");
+                //System.out.println("True");
                 return true;
             } else {
-                System.out.print("False! : ");
+                //System.out.print("False! : ");
                 return false;
             }
         }
@@ -97,32 +106,48 @@ Print hints to System.out to help the user guess the correct number
 //    int secretI2 = secretString.indexOf(secretString.charAt(2));
 
             if(guess0==secret0){
-                System.out.print("Fermi ");
+                //System.out.print("Fermi ");
+                hintString+="Fermi ";
             }
             if(guess1==secret1){
-                System.out.print("Fermi ");
+                //System.out.print("Fermi ");
+                hintString+="Fermi ";
             }
             if(guess2==secret2){
-                System.out.print("Fermi ");
+                //System.out.print("Fermi ");
+                hintString+="Fermi ";
             }
 
             if((guess0==secret1)||(guess0==secret2)){
-                System.out.print("Pico ");
+                //System.out.print("Pico ");
+                hintString+="Pico ";
             }
             if((guess1==secret0)||(guess1==secret2)){
-                System.out.print("Pico ");
+                //System.out.print("Pico ");
+                hintString+="Pico ";
             }
             if((guess2==secret0)||(guess2==secret1)){
-                System.out.print("Pico ");
+                //System.out.print("Pico ");
+                hintString+="Pico ";
             }
             if((guess0!=secret0)&&(guess0!=secret1)&&(guess0!=secret2)
                     &&(guess1!=secret0)&&(guess1!=secret1)&&(guess1!=secret2)
                     &&(guess2!=secret0)&&(guess2!=secret1)&&(guess2!=secret2)){
-                System.out.println("Bagel!");
+                //System.out.println("Bagel!");
+                hintString+="Bagel";
             }
-            System.out.println("");
+            //System.out.println("");
         }
 
+        public String hintString = "";
+
+        public String getHint(){
+            return hintString;
+        }
+
+        public void hintReset(){
+            hintString = "";
+        }
 }
 
 

@@ -25,7 +25,8 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
 
                 TextView rngIndicatorTV = (TextView) findViewById(R.id.rngIndicator);
-                rngIndicatorTV.setText("Random number has been generated!");
+                rngIndicatorTV.setText("Random number has been generated!\n"
+                +"The last random number was ( "+bagel1.getSecretNumber()+" )");
                 bagel1.createSecretNumber();
             }
 
@@ -45,9 +46,10 @@ public class MainActivity extends Activity {
                 bagel1.playGame(userGuess);
 
                 if(bagel1.win){
-                    hintTV.setText("Test");
+                    hintTV.setText("You Win!\nIt took you "+bagel1.getCount()+" tries.");
                 } else {
-                    hintTV.setText("Hi");
+                    hintTV.setText(bagel1.getHint());
+                    bagel1.hintReset();
                 }
             }
 
