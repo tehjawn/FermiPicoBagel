@@ -1,3 +1,11 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#AAAACC"
+    android:orientation="vertical">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,15 +39,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(Random Number Has Not Been Generated Yet)"
+        android:text="(Random Number Has Not Been Generated Yet)
+        (Press button a few times to start!)"
         android:id="@+id/rngIndicator"
         android:layout_margin="15px"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guess the number below!"
+        android:textColor="#FFFFFF"
+        android:id="@+id/textView"
         android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:hint="Must be three digits!"
         android:ems="10"
         android:padding="5px"
         android:id="@+id/userGuess"
@@ -61,8 +79,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(Check + Hints)"
+        android:text="@string/hints"
         android:id="@+id/hint"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
+</ScrollView>

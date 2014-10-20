@@ -12,7 +12,7 @@ public class Bagels {
         private int secretNumber;
         private String secretString = String.valueOf(secretNumber);
         boolean win;
-        private int count;
+        private int count=1;
 
 
         public String getCount(){
@@ -20,7 +20,6 @@ public class Bagels {
         }
 
         public void playGame(String userGuessInput){
-            count = 1;
 
             secretString = String.valueOf(secretNumber);
 
@@ -40,18 +39,23 @@ public class Bagels {
                     break;
                 }
             }
-            String tries;
             if (count>1){
                 tries = " tries.";
             }
             else{
                 tries = " try.";
             }
-            if (count>10){
-                tries = " tries... do better next time.";
+            if (count>23){
+                tries = " tries... do better next time!";
             }
             //System.out.println("It took you "+count+tries);
         }
+
+        public String tries = "";
+        public String getTries(){
+            return tries;
+        }
+        public void resetCount(){ count = 1;}
 
         public void createSecretNumber(){
             secretNumber = rng.nextInt(900)+100;

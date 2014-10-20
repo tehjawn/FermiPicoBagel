@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FermiPicoBagel</string>
+    <string name="app_name">FPBagel</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="hints">(Check + Hints)\n
+            \t- [Fermi] indicates if you guessed a number that matches the value
+            AND position of one of the randomly generated numbers\n
+            \t- [Pico] indicates that you\'ve guessed a correct value, but its
+            position is off\n
+            \t- [Bagel] indicates that the numbers you guessed don\'t match
+            with the numbers of the hidden number at all
+            </string>
 
 </resources>

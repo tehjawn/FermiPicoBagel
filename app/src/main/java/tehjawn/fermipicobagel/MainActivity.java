@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
                 rngIndicatorTV.setText("Random number has been generated!\n"
                 +"The last random number was ( "+bagel1.getSecretNumber()+" )");
                 bagel1.createSecretNumber();
+                bagel1.resetCount();
             }
 
         });
@@ -42,14 +43,21 @@ public class MainActivity extends Activity {
                 TextView hintTV = (TextView) findViewById(R.id.hint);
 
                 String userGuess = userGuessTV.getText().toString();
-
-                bagel1.playGame(userGuess);
-
-                if(bagel1.win){
-                    hintTV.setText("You Win!\nIt took you "+bagel1.getCount()+" tries.");
+                if (userGuess.equals(null)) {
+                    Toast.makeText(getApplicationContext(), "Error! Enter a guess first!",
+                            Toast.LENGTH_LONG).show();
+                } else if (userGuess.length()!=3){
+                    Toast.makeText(getApplicationContext(), "Error! Your guess must be three digits!",
+                            Toast.LENGTH_LONG).show();
                 } else {
-                    hintTV.setText(bagel1.getHint());
-                    bagel1.hintReset();
+                    bagel1.playGame(userGuess);
+
+                    if (bagel1.win) {
+                        hintTV.setText("You Win!\nIt took you " + bagel1.getCount() + bagel1.getTries());
+                    } else {
+                        hintTV.setText(bagel1.getHint());
+                        bagel1.hintReset();
+                    }
                 }
             }
 
